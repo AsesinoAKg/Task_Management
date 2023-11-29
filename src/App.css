@@ -1,38 +1,276 @@
-.App {
-  text-align: center;
+.header{
+  height: 26vh;
+  width: 100%;
+  background-color : #34568e;
+  padding-top: 50px;
+}
+.form-control1{
+  height: 5px;
+  color: #34568e;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.card-container{
+  height: 300px;
+  width: 300px;
+  box-shadow: 0px 3px 50px #A5A5A5;
+ 
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.card-wrapper{
+  width: 300px; 
+  height: 280px; 
+  box-shadow: 0px 3px 50px #A5A5A5;
+
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
+.card-top{
+  width: 100%;
+  height: 2%;
+}
+
+.task-holder{
+  width: 100%;
+  height: 98%;
+  padding: 10px 10px;
+  display : flex;
   flex-direction: column;
+  position: relative;
+}
+
+.card-header{
+  margin-top: 10px;
+  margin-bottom: 10px;
+  /* max-width: 10vw; */
+  /* min-width: 1vw; */
+  
+  height: 30px;
+  padding: 1px 1px !important;
+  text-align: center;
+  word-wrap: break-word;
+  
+}
+
+
+.task-container{
+  height: 600px;
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  background-color: #F6F7F8;
+  padding : 40px 100px;
+}
+.desc{
+  word-wrap: break-word;
+  overflow-y: scroll;
+  height: 80px;
+}
+
+/* .desc1{
+  height: 10px;
+  margin: 5%;
+  font-weight:bolder;
+  word-wrap: break-word;
+  text-transform: capitalize;
+} */
+
+#Btn {
+  position:absolute;
+  right: 45%;
+  width: 150px;
+  height: 55px;
+  border-radius: 45px;
+  border: none;
+  background-color: rgb(151, 95, 255);
+  color: white;
+  box-shadow: 0px 10px 10px rgb(210, 187, 253) inset,
+  0px 5px 10px rgba(5, 5, 5, 0.212),
+  0px -10px 10px rgb(124, 54, 255) inset;
+  cursor: pointer;
+  display: flex;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
 }
 
-.App-link {
-  color: #61dafb;
+#Btn::before {
+  width: 70%;
+  height: 2px;
+  position: absolute;
+  background-color: rgba(250, 250, 250, 0.678);
+  content: "";
+  filter: blur(1px);
+  top: 7px;
+  border-radius: 50%;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+#Btn::after {
+  width: 70%;
+  height: 2px;
+  position: absolute;
+  background-color: rgba(250, 250, 250, 0.137);
+  content: "";
+  filter: blur(1px);
+  bottom: 7px;
+  border-radius: 50%;
+}
+
+#Btn:hover {
+  animation: jello-horizontal 0.9s both;
+}
+
+@keyframes jello-horizontal {
+  0% {
+    transform: scale3d(1, 1, 1);
   }
-  to {
-    transform: rotate(360deg);
+
+  30% {
+    transform: scale3d(1.25, 0.75, 1);
+  }
+
+  40% {
+    transform: scale3d(0.75, 1.25, 1);
+  }
+
+  50% {
+    transform: scale3d(1.15, 0.85, 1);
+  }
+
+  65% {
+    transform: scale3d(0.95, 1.05, 1);
+  }
+
+  75% {
+    transform: scale3d(1.05, 0.95, 1);
+  }
+
+  100% {
+    transform: scale3d(1, 1, 1);
+  }
+}
+
+.plus{
+
+  font-size: x-large;
+}
+
+/* ====== headline css ======    */
+
+h1 {
+  position: relative;
+  padding: 0;
+  margin: 0;
+  font-family: "Raleway", sans-serif;
+  font-weight: 300;
+  font-size: 40px;
+  color: white;
+  -webkit-transition: all 0.4s ease 0s;
+  -o-transition: all 0.4s ease 0s;
+  transition: all 0.4s ease 0s;
+}
+
+
+h1{
+  font-family: 'Bebas Neue', sans-serif;
+  font-family: 'Hedvig Letters Serif', serif;
+color: white !important;
+text-decoration:overline underline;
+}
+input[type=checkbox]:checked+label.strikethrough{
+  text-decoration: line-through;
+}
+.desc1 {
+ position: relative;
+  padding: 6px 10px;
+  border-radius: 9px;
+  width: 5vw;
+  font-weight: bold;
+  text-align: center;
+  text-transform: capitalize;
+  border: none;
+  color: #fff;
+  cursor: pointer;
+  background-color: #f62727;
+  transition: all 0.2s ease;
+}
+
+.desc1:active {
+  transform: scale(0.95);
+}
+
+.desc1:before,
+.desc1:after {
+  position: absolute;
+  content: "";
+  width: 150%;
+  left: 50%;
+  height: 100%;
+  transform: translateX(-50%);
+  z-index: -1000;
+  background-repeat: no-repeat;
+}
+
+.desc1:hover:before {
+  top: -70%;
+  background-image: radial-gradient(circle, #ff7f50 20%, transparent 20%),
+    radial-gradient(circle, transparent 20%, #ff7f50 20%, transparent 30%),
+    radial-gradient(circle, #ff7f50 20%, transparent 20%),
+    radial-gradient(circle, #ff7f50 20%, transparent 20%),
+    radial-gradient(circle, transparent 10%, #ff7f50 15%, transparent 20%),
+    radial-gradient(circle, #ff7f50 20%, transparent 20%),
+    radial-gradient(circle, #ff7f50 20%, transparent 20%),
+    radial-gradient(circle, #ff7f50 20%, transparent 20%),
+    radial-gradient(circle, #ff7f50 20%, transparent 20%);
+  background-size: 10% 10%, 20% 20%, 15% 15%, 20% 20%, 18% 18%, 10% 10%, 15% 15%,
+    10% 10%, 18% 18%;
+  background-position: 50% 120%;
+  animation: orangeTopBubbles 0.6s ease;
+}
+
+@keyframes orangeTopBubbles {
+  0% {
+    background-position: 5% 90%, 10% 90%, 10% 90%, 15% 90%, 25% 90%, 25% 90%,
+      40% 90%, 55% 90%, 70% 90%;
+  }
+
+  50% {
+    background-position: 0% 80%, 0% 20%, 10% 40%, 20% 0%, 30% 30%, 22% 50%,
+      50% 50%, 65% 20%, 90% 30%;
+  }
+
+  100% {
+    background-position: 0% 70%, 0% 10%, 10% 30%, 20% -10%, 30% 20%, 22% 40%,
+      50% 40%, 65% 10%, 90% 20%;
+    background-size: 0% 0%, 0% 0%, 0% 0%, 0% 0%, 0% 0%, 0% 0%;
+  }
+}
+
+.desc1:hover::after {
+  bottom: -70%;
+  background-image: radial-gradient(circle, #ff7f50 20%, transparent 20%),
+    radial-gradient(circle, #ff7f50 20%, transparent 20%),
+    radial-gradient(circle, transparent 10%, #ff7f50 15%, transparent 20%),
+    radial-gradient(circle, #ff7f50 20%, transparent 20%),
+    radial-gradient(circle, #ff7f50 20%, transparent 20%),
+    radial-gradient(circle, #ff7f50 20%, transparent 20%),
+    radial-gradient(circle, #ff7f50 20%, transparent 20%);
+  background-size: 15% 15%, 20% 20%, 18% 18%, 20% 20%, 15% 15%, 20% 20%, 18% 18%;
+  background-position: 50% 0%;
+  animation: orangeBottomBubbles 0.6s ease;
+}
+
+@keyframes orangeBottomBubbles {
+  0% {
+    background-position: 10% -10%, 30% 10%, 55% -10%, 70% -10%, 85% -10%,
+      70% -10%, 70% 0%;
+  }
+
+  50% {
+    background-position: 0% 80%, 20% 80%, 45% 60%, 60% 100%, 75% 70%, 95% 60%,
+      105% 0%;
+  }
+
+  100% {
+    background-position: 0% 90%, 20% 90%, 45% 70%, 60% 110%, 75% 80%, 95% 70%,
+      110% 10%;
+    background-size: 0% 0%, 0% 0%, 0% 0%, 0% 0%, 0% 0%, 0% 0%;
   }
 }
