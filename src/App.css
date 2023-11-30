@@ -63,6 +63,10 @@
   word-wrap: break-word;
   overflow-y: scroll;
   height: 80px;
+  background-color: #c3bdbd;
+  border-radius: 15px;
+  margin: 0%;
+  padding: 2%;
 }
 
 /* .desc1{

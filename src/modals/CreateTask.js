@@ -34,87 +34,84 @@ const CreateTaskPopup = ({ modal, toggle, save }) => {
     let taskObj = {};
     taskObj["Name"] = taskName;
     taskObj["Description1"] = description1;
-    taskObj["Description"] = description;
+    
     taskObj["Priority Level"] = value;
+    taskObj["Description"] = description;
     setTaskName("");
     setDescription1("");
-    save(taskObj);
+    setDescription("Level");
+    if(taskName===''){
+      document.getElementById('taskname_msg').innerText='* Taskname is required';
+          document.getElementById('taskname_msg').style.color="red";
+    }
+    
+    else{
+      save(taskObj);
+    }
+
   };
 
   return (
     <Modal isOpen={modal} toggle={toggle}>
       <ModalHeader toggle={toggle}>Create Task</ModalHeader>
       <ModalBody>
-        <form
-          class="needs-validation"
-          method="POST"
-          action="index.html"
-          novalidate
-        >
           <div className="form-group">
             <label for="validationCustom01" class="form-label">
-              Task Name
-            </label>
-            <input
-              type="text"
-              className="form-control"
+              Task Name</label>
+            <input type="text"
               id="validationCustom01"
               value={taskName}
+              className="form-control"
               onChange={handleChange}
               placeholder="Title goes here..."
-              name="taskName"
-              required
-            />
+              name="taskName"/>
+              <p><small id='taskname_msg'></small></p>
           </div>
           <div className="form-group">
-            <label>Description</label>
+            <label for="">Description</label>
             <textarea
               rows="5"
               className="form-control"
               placeholder="Description goes here..."
               value={description1}
-              required
               onChange={handleChange}
               name="description1"
             ></textarea>
           </div>
-          <div className="form-group">
-            <label>Priority</label>
+          <br/>
+          <div className="form-control">
+            <label for="level">set Priority</label>
             <div
               rows="5"
-              className="form-control1 h-0"
+              className="form-control1"
               value={description}
               onChange={handleChange}
               name="description"
             ></div>
-          </div>
-
-          <div class="btn-group">
             <select
               onChange={handleChange}
               value={value}
               name="prior"
               id="level"
-              required
-            >
-              <option value="priority">Priority level</option>
+              className="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              <option value="priority" id="level" selected>Priority level</option>
               <option value="low">Low</option>
               <option value="medium">Medium</option>
               <option value="high">High</option>
             </select>
           </div>
-          <br />
-        </form>
+          <br/>
       </ModalBody>
       <ModalFooter>
-        <Button
+      <Button
           id="submitbutton"
           type="submit"
           color="success"
           onClick={handleSave}
         >
           Create
-        </Button>{" "}
+        </Button>
+        {" "}
         <Button color="danger" onClick={toggle}>
           Cancel
         </Button>
